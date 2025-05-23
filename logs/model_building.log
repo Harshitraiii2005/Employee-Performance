@@ -1,0 +1,49 @@
+2025-05-23 23:18:50,034 - model_building - DEBUG - Data loaded successfully from datasets/train.csv
+2025-05-23 23:18:50,050 - model_building - INFO - Data split into features and target variable.
+2025-05-23 23:18:50,050 - model_building - DEBUG - Training Linear Regression...
+2025-05-23 23:18:50,151 - model_building - DEBUG - Linear Regression model trained successfully.
+2025-05-23 23:18:50,151 - model_building - DEBUG - Training Ridge Regression...
+2025-05-23 23:18:50,180 - model_building - DEBUG - Ridge Regression model trained successfully.
+2025-05-23 23:18:50,180 - model_building - DEBUG - Training Lasso Regression...
+2025-05-23 23:18:50,223 - model_building - DEBUG - Lasso Regression model trained successfully.
+2025-05-23 23:18:50,223 - model_building - DEBUG - Training ElasticNet Regression...
+2025-05-23 23:18:50,273 - model_building - DEBUG - ElasticNet Regression model trained successfully.
+2025-05-23 23:18:50,274 - model_building - DEBUG - Training Random Forest...
+2025-05-23 23:19:17,216 - model_building - DEBUG - Random Forest model trained successfully.
+2025-05-23 23:19:17,216 - model_building - DEBUG - Training Extra Trees...
+2025-05-23 23:19:36,989 - model_building - DEBUG - Extra Trees model trained successfully.
+2025-05-23 23:19:36,989 - model_building - DEBUG - Training Gradient Boosting...
+2025-05-23 23:19:50,689 - model_building - DEBUG - Gradient Boosting model trained successfully.
+2025-05-23 23:19:50,689 - model_building - DEBUG - Training XGBoost...
+2025-05-23 23:19:51,132 - model_building - DEBUG - XGBoost model trained successfully.
+2025-05-23 23:19:51,132 - model_building - DEBUG - Training LightGBM...
+2025-05-23 23:19:51,447 - model_building - DEBUG - LightGBM model trained successfully.
+2025-05-23 23:19:51,447 - model_building - DEBUG - Training CatBoost...
+2025-05-23 23:19:59,230 - model_building - DEBUG - CatBoost model trained successfully.
+2025-05-23 23:25:54,255 - model_building - DEBUG - Stacking Regressor trained successfully.
+2025-05-23 23:33:19,665 - model_building - DEBUG - Voting Regressor trained successfully.
+2025-05-23 23:33:19,666 - model_building - INFO - All models trained successfully.
+2025-05-23 23:33:19,667 - model_building - DEBUG - Model saved successfully to models\linear_regression.pkl
+2025-05-23 23:33:19,669 - model_building - INFO - Linear Regression model saved at models\linear_regression.pkl.
+2025-05-23 23:33:19,669 - model_building - DEBUG - Model saved successfully to models\ridge_regression.pkl
+2025-05-23 23:33:19,669 - model_building - INFO - Ridge Regression model saved at models\ridge_regression.pkl.
+2025-05-23 23:33:19,673 - model_building - DEBUG - Model saved successfully to models\lasso_regression.pkl
+2025-05-23 23:33:19,675 - model_building - INFO - Lasso Regression model saved at models\lasso_regression.pkl.
+2025-05-23 23:33:19,677 - model_building - DEBUG - Model saved successfully to models\elasticnet_regression.pkl
+2025-05-23 23:33:19,677 - model_building - INFO - ElasticNet Regression model saved at models\elasticnet_regression.pkl.
+2025-05-23 23:33:20,231 - model_building - DEBUG - Model saved successfully to models\random_forest.pkl
+2025-05-23 23:33:20,231 - model_building - INFO - Random Forest model saved at models\random_forest.pkl.
+2025-05-23 23:33:21,550 - model_building - DEBUG - Model saved successfully to models\extra_trees.pkl
+2025-05-23 23:33:21,550 - model_building - INFO - Extra Trees model saved at models\extra_trees.pkl.
+2025-05-23 23:33:21,550 - model_building - DEBUG - Model saved successfully to models\gradient_boosting.pkl
+2025-05-23 23:33:21,550 - model_building - INFO - Gradient Boosting model saved at models\gradient_boosting.pkl.
+2025-05-23 23:33:21,564 - model_building - DEBUG - Model saved successfully to models\xgboost.pkl
+2025-05-23 23:33:21,565 - model_building - INFO - XGBoost model saved at models\xgboost.pkl.
+2025-05-23 23:33:21,577 - model_building - DEBUG - Model saved successfully to models\lightgbm.pkl
+2025-05-23 23:33:21,577 - model_building - INFO - LightGBM model saved at models\lightgbm.pkl.
+2025-05-23 23:33:21,578 - model_building - DEBUG - Model saved successfully to models\catboost.pkl
+2025-05-23 23:33:21,578 - model_building - INFO - CatBoost model saved at models\catboost.pkl.
+2025-05-23 23:33:27,679 - model_building - DEBUG - Model saved successfully to models\stacking_regressor.pkl
+2025-05-23 23:33:27,679 - model_building - INFO - Stacking Regressor model saved at models\stacking_regressor.pkl.
+2025-05-23 23:33:39,417 - model_building - DEBUG - Model saved successfully to models\voting_regressor.pkl
+2025-05-23 23:33:39,417 - model_building - INFO - Voting Regressor model saved at models\voting_regressor.pkl.

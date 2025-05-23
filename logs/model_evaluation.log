@@ -1,0 +1,59 @@
+2025-05-23 23:35:34,792 - model_evaluation - DEBUG - Data loaded successfully from datasets/test.csv
+2025-05-23 23:35:34,793 - model_evaluation - INFO - Evaluating model: catboost
+2025-05-23 23:35:35,638 - model_evaluation - DEBUG - Model loaded successfully from models\catboost.pkl
+2025-05-23 23:35:35,671 - model_evaluation - DEBUG - Model evaluation metrics - MAE: 0.9983948031714203, MSE: 1.3442731254264892, R2: -0.017412426971125106
+2025-05-23 23:35:35,672 - model_evaluation - DEBUG - Metrics saved successfully to metrics\catboost_metrics.json
+2025-05-23 23:35:43,913 - model_evaluation - ERROR - Error in main function: 'Live' object has no attribute 'log'
+2025-05-23 23:36:58,635 - model_evaluation - DEBUG - Data loaded successfully from datasets/test.csv
+2025-05-23 23:36:58,635 - model_evaluation - ERROR - Error in main function: name 'glob' is not defined
+2025-05-23 23:37:13,420 - model_evaluation - DEBUG - Data loaded successfully from datasets/test.csv
+2025-05-23 23:37:13,420 - model_evaluation - INFO - Evaluating model: catboost
+2025-05-23 23:37:14,204 - model_evaluation - DEBUG - Model loaded successfully from models\catboost.pkl
+2025-05-23 23:37:14,226 - model_evaluation - DEBUG - Model evaluation metrics - MAE: 0.9983948031714203, MSE: 1.3442731254264892, R2: -0.017412426971125106
+2025-05-23 23:37:14,228 - model_evaluation - DEBUG - Metrics saved successfully to metrics\catboost_metrics.json
+2025-05-23 23:37:14,228 - model_evaluation - INFO - Evaluating model: elasticnet_regression
+2025-05-23 23:37:14,289 - model_evaluation - DEBUG - Model loaded successfully from models\elasticnet_regression.pkl
+2025-05-23 23:37:14,305 - model_evaluation - DEBUG - Model evaluation metrics - MAE: 0.99250173595, MSE: 1.3218204387668906, R2: -0.000419122564242036
+2025-05-23 23:37:14,312 - model_evaluation - DEBUG - Metrics saved successfully to metrics\elasticnet_regression_metrics.json
+2025-05-23 23:37:14,314 - model_evaluation - INFO - Evaluating model: extra_trees
+2025-05-23 23:37:16,107 - model_evaluation - DEBUG - Model loaded successfully from models\extra_trees.pkl
+2025-05-23 23:37:16,640 - model_evaluation - DEBUG - Model evaluation metrics - MAE: 1.003199095, MSE: 1.3616978846844998, R2: -0.03060034709744297
+2025-05-23 23:37:16,640 - model_evaluation - DEBUG - Metrics saved successfully to metrics\extra_trees_metrics.json
+2025-05-23 23:37:16,640 - model_evaluation - INFO - Evaluating model: gradient_boosting
+2025-05-23 23:37:16,640 - model_evaluation - DEBUG - Model loaded successfully from models\gradient_boosting.pkl
+2025-05-23 23:37:16,761 - model_evaluation - DEBUG - Model evaluation metrics - MAE: 0.9924893245564618, MSE: 1.3226230464909503, R2: -0.0010265758094165633
+2025-05-23 23:37:16,761 - model_evaluation - DEBUG - Metrics saved successfully to metrics\gradient_boosting_metrics.json
+2025-05-23 23:37:16,777 - model_evaluation - INFO - Evaluating model: lasso_regression
+2025-05-23 23:37:16,780 - model_evaluation - DEBUG - Model loaded successfully from models\lasso_regression.pkl
+2025-05-23 23:37:16,784 - model_evaluation - DEBUG - Model evaluation metrics - MAE: 0.99250173595, MSE: 1.3218204387668906, R2: -0.000419122564242036
+2025-05-23 23:37:16,785 - model_evaluation - DEBUG - Metrics saved successfully to metrics\lasso_regression_metrics.json
+2025-05-23 23:37:16,787 - model_evaluation - INFO - Evaluating model: lightgbm
+2025-05-23 23:37:17,183 - model_evaluation - DEBUG - Model loaded successfully from models\lightgbm.pkl
+2025-05-23 23:37:17,234 - model_evaluation - DEBUG - Model evaluation metrics - MAE: 0.994494184995166, MSE: 1.3291900102891392, R2: -0.005996778999060259
+2025-05-23 23:37:17,234 - model_evaluation - DEBUG - Metrics saved successfully to metrics\lightgbm_metrics.json
+2025-05-23 23:37:17,234 - model_evaluation - INFO - Evaluating model: linear_regression
+2025-05-23 23:37:17,234 - model_evaluation - DEBUG - Model loaded successfully from models\linear_regression.pkl
+2025-05-23 23:37:17,246 - model_evaluation - DEBUG - Model evaluation metrics - MAE: 0.992506628922964, MSE: 1.321967991443372, R2: -0.000530797731918442
+2025-05-23 23:37:17,249 - model_evaluation - DEBUG - Metrics saved successfully to metrics\linear_regression_metrics.json
+2025-05-23 23:37:17,253 - model_evaluation - INFO - Evaluating model: random_forest
+2025-05-23 23:37:18,232 - model_evaluation - DEBUG - Model loaded successfully from models\random_forest.pkl
+2025-05-23 23:37:18,696 - model_evaluation - DEBUG - Model evaluation metrics - MAE: 0.9981399649999999, MSE: 1.3444366046435, R2: -0.017536156132849978
+2025-05-23 23:37:18,696 - model_evaluation - DEBUG - Metrics saved successfully to metrics\random_forest_metrics.json
+2025-05-23 23:37:18,696 - model_evaluation - INFO - Evaluating model: ridge_regression
+2025-05-23 23:37:18,696 - model_evaluation - DEBUG - Model loaded successfully from models\ridge_regression.pkl
+2025-05-23 23:37:18,756 - model_evaluation - DEBUG - Model evaluation metrics - MAE: 0.9925066386550682, MSE: 1.3219678743783614, R2: -0.0005307091313251355
+2025-05-23 23:37:18,756 - model_evaluation - DEBUG - Metrics saved successfully to metrics\ridge_regression_metrics.json
+2025-05-23 23:37:18,756 - model_evaluation - INFO - Evaluating model: stacking_regressor
+2025-05-23 23:37:23,056 - model_evaluation - DEBUG - Model loaded successfully from models\stacking_regressor.pkl
+2025-05-23 23:37:24,041 - model_evaluation - DEBUG - Model evaluation metrics - MAE: 0.9927910348625032, MSE: 1.322524046299789, R2: -0.0009516475654052226
+2025-05-23 23:37:24,041 - model_evaluation - DEBUG - Metrics saved successfully to metrics\stacking_regressor_metrics.json
+2025-05-23 23:37:24,041 - model_evaluation - INFO - Evaluating model: voting_regressor
+2025-05-23 23:37:45,850 - model_evaluation - DEBUG - Model loaded successfully from models\voting_regressor.pkl
+2025-05-23 23:37:48,320 - model_evaluation - DEBUG - Model evaluation metrics - MAE: 0.9934570484884815, MSE: 1.325233277576645, R2: -0.003002127870691318
+2025-05-23 23:37:48,320 - model_evaluation - DEBUG - Metrics saved successfully to metrics\voting_regressor_metrics.json
+2025-05-23 23:37:48,320 - model_evaluation - INFO - Evaluating model: xgboost
+2025-05-23 23:37:48,320 - model_evaluation - DEBUG - Model loaded successfully from models\xgboost.pkl
+2025-05-23 23:37:49,256 - model_evaluation - DEBUG - Model evaluation metrics - MAE: 1.0076528044042588, MSE: 1.379322303443027, R2: -0.043939379414539737
+2025-05-23 23:37:49,256 - model_evaluation - DEBUG - Metrics saved successfully to metrics\xgboost_metrics.json
+2025-05-23 23:37:49,256 - model_evaluation - DEBUG - Metrics saved successfully to metrics\all_models_metrics.json
+2025-05-23 23:37:49,256 - model_evaluation - INFO - All model metrics saved successfully.
