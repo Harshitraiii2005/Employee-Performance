@@ -1,0 +1,80 @@
+schema: '2.0'
+stages:
+  data_preprocessing:
+    cmd: python src/data_preprocessing.py
+    deps:
+    - path: datasets/Extended_Employee_Performance_and_Productivity_Data.csv
+      hash: md5
+      md5: f938f788720f8f998905c1eb6f12f7dd
+      size: 11243502
+    - path: src/data_preprocessing.py
+      hash: md5
+      md5: 8e46c105bb143c397f38b775dd93dd2c
+      size: 3458
+    outs:
+    - path: data/processed_data.csv
+      hash: md5
+      md5: d67e7305af3d3f876b2e58a48b27cd36
+      size: 32269925
+  data_split:
+    cmd: python src/data_split.py
+    deps:
+    - path: data/processed_data.csv
+      hash: md5
+      md5: d67e7305af3d3f876b2e58a48b27cd36
+      size: 32269925
+    - path: src/data_split.py
+      hash: md5
+      md5: ca652b3e5b83ea514b6fb53b6ffa776f
+      size: 2813
+    outs:
+    - path: datasets/test.csv
+      hash: md5
+      md5: 813f898b03ebb141e1692178591c83dd
+      size: 6362207
+    - path: datasets/train.csv
+      hash: md5
+      md5: 689c3a71865b656ead5b25bbb206d0fa
+      size: 25446984
+  model_training:
+    cmd: python src/model_building.py
+    deps:
+    - path: datasets/train.csv
+      hash: md5
+      md5: 689c3a71865b656ead5b25bbb206d0fa
+      size: 25446984
+    - path: params.yaml
+      hash: md5
+      md5: 96810420b20709da794e6645f4416407
+      size: 387
+    - path: src/model_building.py
+      hash: md5
+      md5: 9c7fdcbdf9ecb1e3cf9598898f0a83c5
+      size: 4515
+    outs:
+    - path: models/traditional/
+      hash: md5
+      md5: 4c0f62c5a816e727687209462201f06b.dir
+      size: 10027833
+      nfiles: 7
+  running_ann:
+    cmd: python src/ann_withbackprop.py
+    deps:
+    - path: datasets/train.csv
+      hash: md5
+      md5: 689c3a71865b656ead5b25bbb206d0fa
+      size: 25446984
+    - path: src/ann_withbackprop.py
+      hash: md5
+      md5: 094fe4767c7b11428b8849104e626098
+      size: 3848
+    outs:
+    - path: metrics/
+      hash: md5
+      md5: ed6ff3c9b04ea5ebe75675d5e4387729.dir
+      size: 164
+      nfiles: 1
+    - path: models/ann_model.h5
+      hash: md5
+      md5: 6d65f344e3032edfe11e625a18fc9100
+      size: 663176

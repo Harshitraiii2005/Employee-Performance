@@ -1,0 +1,17 @@
+2025-05-23 23:05:41,076 - data_ingestion - INFO - Data loaded successfully from datasets/Extended_Employee_Performance_and_Productivity_Data.csv
+2025-05-23 23:05:41,076 - data_ingestion - INFO - Data Loaded Successfully
+2025-05-23 23:05:41,076 - data_ingestion - INFO - Data shape: (100000, 20)
+2025-05-23 23:05:41,076 - data_ingestion - INFO - Data columns: ['Employee_ID', 'Department', 'Gender', 'Age', 'Job_Title', 'Hire_Date', 'Years_At_Company', 'Education_Level', 'Performance_Score', 'Monthly_Salary', 'Work_Hours_Per_Week', 'Projects_Handled', 'Overtime_Hours', 'Sick_Days', 'Remote_Work_Frequency', 'Team_Size', 'Training_Hours', 'Promotions', 'Employee_Satisfaction_Score', 'Resigned']
+2025-05-23 23:05:41,094 - data_ingestion - INFO - Data head:
+   Employee_ID        Department  Gender  Age   Job_Title  ... Team_Size  Training_Hours Promotions  Employee_Satisfaction_Score  Resigned
+0            1                IT    Male   55  Specialist  ...        14              66          0                         2.63     False
+1            2           Finance    Male   29   Developer  ...        12              61          2                         1.72     False
+2            3           Finance    Male   55  Specialist  ...        10               1          0                         3.17     False
+3            4  Customer Support  Female   48     Analyst  ...        10               0          1                         1.86     False
+4            5       Engineering  Female   36     Analyst  ...        15               9          1                         1.25     False
+
+[5 rows x 20 columns]
+2025-05-24 01:17:28,342 - data_ingestion - ERROR - Error loading data from datasets/Extended_Employee_Performance_and_Productivity_Data.csv: [Errno 2] No such file or directory: 'datasets/Extended_Employee_Performance_and_Productivity_Data.csv'
+2025-05-24 01:17:28,343 - data_ingestion - ERROR - Error in main function: [Errno 2] No such file or directory: 'datasets/Extended_Employee_Performance_and_Productivity_Data.csv'
+2025-05-24 01:18:15,957 - data_ingestion - ERROR - Error loading data from datasets/Extended_Employee_Performance_and_Productivity_Data.csv: [Errno 2] No such file or directory: 'datasets/Extended_Employee_Performance_and_Productivity_Data.csv'
+2025-05-24 01:18:15,957 - data_ingestion - ERROR - Error in main function: [Errno 2] No such file or directory: 'datasets/Extended_Employee_Performance_and_Productivity_Data.csv'
