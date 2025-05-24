@@ -1,14 +1,13 @@
 import os
 import logging
 import pandas as pd
-import numpy as np
 import pickle
 import json
+import glob
+import shutil
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
-import dvclive
-from dvclive import Live
 
-# Logging setup
+
 log_dir = "logs"
 os.makedirs(log_dir, exist_ok=True)
 
@@ -29,7 +28,6 @@ file_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
 
-# Corrected function name
 def load_model(model_path: str):
     try:
         with open(model_path, 'rb') as file:
@@ -76,27 +74,39 @@ def save_metrics(metrics: dict, output_path: str):
         logger.error(f"Error saving metrics to {output_path}: {e}")
         raise
 
-import glob
+def save_top_models(all_metrics, model_dir='models', top_dir='models/traditional', top_k=3):
+    
+    sorted_models = sorted(all_metrics.items(), key=lambda x: x[1]['MSE'])
+    top_models = sorted_models[:top_k]
+
+    os.makedirs(top_dir, exist_ok=True)
+
+    for model_name, metrics in top_models:
+        src_path = os.path.join(model_dir, f"{model_name}.pkl")
+        dest_path = os.path.join(top_dir, f"{model_name}.pkl")
+        try:
+            shutil.copy2(src_path, dest_path)
+            logger.info(f"Saved top model {model_name} to {dest_path}")
+        except Exception as e:
+            logger.error(f"Failed to save top model {model_name}: {e}")
 
 def main():
     try:
-        model_dir = 'models'
+        model_dir = 'models'  
         data_path = 'datasets/test.csv'
-        metrics_dir = 'metrics'
+        metrics_dir = 'metrics/eval'
+
         os.makedirs(metrics_dir, exist_ok=True)
 
-       
         df = load_data(data_path)
         X_test = df.drop(columns=['Employee_Satisfaction_Score'])
         y_test = df['Employee_Satisfaction_Score']
 
-        
         model_files = glob.glob(os.path.join(model_dir, '*.pkl'))
         if not model_files:
             logger.warning(f"No model files found in {model_dir}")
             return
 
-       
         all_metrics = {}
 
         for model_path in model_files:
@@ -108,6 +118,9 @@ def main():
             all_metrics[model_name] = metrics
 
             
+            print(f"Metrics for {model_name}: MAE={metrics['MAE']:.4f}, MSE={metrics['MSE']:.4f}, R2={metrics['R2']:.4f}")
+
+            
             metrics_output_path = os.path.join(metrics_dir, f"{model_name}_metrics.json")
             save_metrics(metrics, metrics_output_path)
 
@@ -116,10 +129,12 @@ def main():
         save_metrics(all_metrics, combined_metrics_path)
         logger.info("All model metrics saved successfully.")
 
+        
+        save_top_models(all_metrics, model_dir=model_dir, top_dir='models/traditional', top_k=3)
+
     except Exception as e:
         logger.error(f"Error in main function: {e}")
         raise
-
 
 if __name__ == "__main__":
     main()

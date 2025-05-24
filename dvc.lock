@@ -45,17 +45,17 @@ stages:
       size: 25446984
     - path: params.yaml
       hash: md5
-      md5: 96810420b20709da794e6645f4416407
-      size: 387
+      md5: 3dd6cb66d9b7c531c58fc6f0df05d91c
+      size: 384
     - path: src/model_building.py
       hash: md5
-      md5: 9c7fdcbdf9ecb1e3cf9598898f0a83c5
-      size: 4515
+      md5: 74a7db6ae3ec6df2a188e008f7588a50
+      size: 4501
     outs:
-    - path: models/traditional/
+    - path: models/temp/
       hash: md5
-      md5: 4c0f62c5a816e727687209462201f06b.dir
-      size: 10027833
+      md5: f1dd6ffda26d2fffa69000533ded8fe6.dir
+      size: 30455177
       nfiles: 7
   running_ann:
     cmd: python src/ann_withbackprop.py
@@ -78,3 +78,30 @@ stages:
       hash: md5
       md5: 6d65f344e3032edfe11e625a18fc9100
       size: 663176
+  model_evaluation:
+    cmd: python src/model_evaluation.py
+    deps:
+    - path: datasets/test.csv
+      hash: md5
+      md5: 813f898b03ebb141e1692178591c83dd
+      size: 6362207
+    - path: models/temp/
+      hash: md5
+      md5: f1dd6ffda26d2fffa69000533ded8fe6.dir
+      size: 30455177
+      nfiles: 7
+    - path: src/model_evaluation.py
+      hash: md5
+      md5: 61706488f42ce254580380ff505a66fd
+      size: 4721
+    outs:
+    - path: metrics/eval/
+      hash: md5
+      md5: 67840202b52e25118ed0322af6a7939d.dir
+      size: 4608
+      nfiles: 20
+    - path: models/traditional/
+      hash: md5
+      md5: b45c4051be0fad72b7333f8193d223e5.dir
+      size: 4462
+      nfiles: 3

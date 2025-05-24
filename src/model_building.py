@@ -27,8 +27,9 @@ formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(messag
 console_handler.setFormatter(formatter)
 file_handler.setFormatter(formatter)
 
-logger.addHandler(console_handler)
-logger.addHandler(file_handler)
+if not logger.handlers:
+    logger.addHandler(console_handler)
+    logger.addHandler(file_handler)
 
 # Model mapping
 MODEL_MAPPING = {
@@ -113,8 +114,8 @@ def main():
         trained_models = train_models(X, y, params['models'])
         logger.info("All models trained successfully.")
 
-        # Save all models to models/traditional/
-        output_dir = os.path.join("models", "traditional")
+        
+        output_dir = os.path.join("models", "temp")
         os.makedirs(output_dir, exist_ok=True)
 
         for name, model in trained_models.items():

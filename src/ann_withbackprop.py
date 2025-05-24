@@ -7,8 +7,15 @@ import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Input
 from tensorflow.keras.optimizers import Adam
+import random
 
-# === Logging Setup ===
+
+seed = 42
+tf.random.set_seed(seed)
+np.random.seed(seed)
+random.seed(seed)
+
+
 log_dir = "logs"
 os.makedirs(log_dir, exist_ok=True)
 
@@ -29,7 +36,7 @@ file_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
 
-# === Data Loading ===
+
 def load_data(file_path: str) -> pd.DataFrame:
     try:
         df = pd.read_csv(file_path)
@@ -39,6 +46,9 @@ def load_data(file_path: str) -> pd.DataFrame:
         logger.error(f"Error loading data from {file_path}: {e}")
         raise
 
+def safe_metric(history, key):
+    
+    return float(history.history[key][-1]) if key in history.history else None
 
 def create_and_train_model(X_train, y_train, model_path: str, metrics_path: str):
     try:
@@ -52,39 +62,50 @@ def create_and_train_model(X_train, y_train, model_path: str, metrics_path: str)
             Dense(1, activation='linear')
         ])
 
-        model.compile(optimizer=Adam(learning_rate=0.001),
-                      loss='mean_squared_error',
-                      metrics=['mean_absolute_error'])
+        model.compile(
+            optimizer=Adam(learning_rate=0.001),
+            loss='mean_squared_error',
+            metrics=['mean_absolute_error']
+        )
 
         logger.info("Starting training...")
-        history = model.fit(X_train, y_train, epochs=100, batch_size=32,
-                            validation_split=0.2, verbose=1)
+        history = model.fit(
+            X_train, y_train,
+            epochs=100,
+            batch_size=32,
+            validation_split=0.2,
+            verbose=1
+        )
 
         logger.info("Training completed successfully.")
 
         
-        os.makedirs(os.path.dirname(model_path), exist_ok=True)
+        model_dir = os.path.dirname(model_path)
+        if model_dir:
+            os.makedirs(model_dir, exist_ok=True)
         model.save(model_path)
         logger.info(f"Model saved at {model_path}")
 
+       
+        metrics_dir = os.path.dirname(metrics_path)
+        if metrics_dir:
+            os.makedirs(metrics_dir, exist_ok=True)
+
         
-        os.makedirs(os.path.dirname(metrics_path), exist_ok=True)
         final_metrics = {
-            'final_loss': float(history.history['loss'][-1]),
-            'final_val_loss': float(history.history['val_loss'][-1]),
-            'final_mae': float(history.history['mean_absolute_error'][-1]),
-            'final_val_mae': float(history.history['val_mean_absolute_error'][-1])
+            'final_loss': safe_metric(history, 'loss'),
+            'final_val_loss': safe_metric(history, 'val_loss'),
+            'final_mae': safe_metric(history, 'mean_absolute_error') or safe_metric(history, 'mae'),
+            'final_val_mae': safe_metric(history, 'val_mean_absolute_error') or safe_metric(history, 'val_mae')
         }
 
         with open(metrics_path, 'w') as f:
             json.dump(final_metrics, f, indent=4)
-
         logger.info(f"Metrics saved at {metrics_path}")
 
     except Exception as e:
         logger.error(f"Error in create_and_train_model function: {e}")
         raise
-
 
 def main():
     try:
@@ -103,6 +124,10 @@ def main():
 
         X = df.drop(columns=['Employee_Satisfaction_Score'])
         y = df['Employee_Satisfaction_Score']
+
+       
+        X = X.values.astype(np.float32)
+        y = y.values.astype(np.float32)
 
         logger.info(f"Data shape: {df.shape}, Features: {X.shape}, Target: {y.shape}")
 
