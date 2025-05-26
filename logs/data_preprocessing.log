@@ -19,3 +19,11 @@
 2025-05-24 01:21:01,669 - data_preprocessing - INFO - Data preprocessing completed successfully.
 2025-05-24 01:21:01,670 - data_preprocessing - DEBUG - Processed data shape: (100000, 32)
 2025-05-24 01:21:05,433 - data_preprocessing - INFO - Preprocessed data saved successfully.
+2025-05-26 16:14:49,890 - data_preprocessing - INFO - Raw data loaded from datasets/Extended_Employee_Performance_and_Productivity_Data_Raw.csv with shape (100000, 20).
+2025-05-26 16:14:50,011 - data_preprocessing - DEBUG - Split data into features and target.
+2025-05-26 16:14:50,140 - data_preprocessing - DEBUG - Numerical features: ['Age', 'Years_At_Company', 'Performance_Score', 'Monthly_Salary', 'Work_Hours_Per_Week', 'Projects_Handled', 'Overtime_Hours', 'Sick_Days', 'Remote_Work_Frequency', 'Team_Size', 'Training_Hours', 'Promotions']
+2025-05-26 16:14:50,223 - data_preprocessing - DEBUG - Categorical features: ['Department', 'Job_Title', 'Education_Level']
+2025-05-26 16:14:50,261 - data_preprocessing - DEBUG - OHE Params: {'handle_unknown': 'ignore', 'sparse_output': False}
+2025-05-26 16:14:50,825 - data_preprocessing - INFO - Features preprocessing completed.
+2025-05-26 16:14:50,875 - data_preprocessing - DEBUG - Processed features shape: (100000, 32)
+2025-05-26 16:15:01,894 - data_preprocessing - INFO - Preprocessed data saved at datasets/preprocessed_data.csv.

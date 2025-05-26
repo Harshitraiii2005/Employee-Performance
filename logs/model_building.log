@@ -215,3 +215,47 @@
 2025-05-24 14:57:01,213 - model_building - INFO - StackingRegressor model saved at models\temp\stackingregressor.pkl.
 2025-05-24 14:57:01,411 - model_building - DEBUG - Model saved successfully to models\temp\votingregressor.pkl
 2025-05-24 14:57:01,411 - model_building - INFO - VotingRegressor model saved at models\temp\votingregressor.pkl.
+2025-05-26 16:18:47,585 - model_building - DEBUG - Data loaded successfully from datasets/X_train.csv
+2025-05-26 16:18:47,831 - model_building - DEBUG - Data loaded successfully from datasets/y_train.csv
+2025-05-26 16:18:47,902 - model_building - INFO - Training data loaded successfully.
+2025-05-26 16:18:48,001 - model_building - DEBUG - Training RandomForestRegressor with params: {'n_estimators': 100, 'max_depth': 8}
+2025-05-26 16:21:02,915 - model_building - DEBUG - RandomForestRegressor trained successfully.
+2025-05-26 16:21:02,982 - model_building - DEBUG - Training GradientBoostingRegressor with params: {'n_estimators': 100, 'learning_rate': 1}
+2025-05-26 16:22:03,666 - model_building - DEBUG - GradientBoostingRegressor trained successfully.
+2025-05-26 16:22:03,735 - model_building - DEBUG - Training XGBRegressor with params: {'n_estimators': 100, 'learning_rate': 0.1}
+2025-05-26 16:24:51,373 - model_building - DEBUG - XGBRegressor trained successfully.
+2025-05-26 16:24:51,426 - model_building - DEBUG - Training LGBMRegressor with params: {'n_estimators': 90, 'learning_rate': 0.1}
+2025-05-26 16:28:27,900 - model_building - DEBUG - LGBMRegressor trained successfully.
+2025-05-26 16:28:27,981 - model_building - DEBUG - Training CatBoostRegressor with params: {'iterations': 120, 'learning_rate': 0.1, 'depth': 3, 'verbose': 0}
+2025-05-26 16:28:35,399 - model_building - DEBUG - CatBoostRegressor trained successfully.
+2025-05-26 17:03:00,119 - model_building - DEBUG - StackingRegressor trained successfully.
+2025-05-26 21:06:05,474 - model_building - DEBUG - Data loaded successfully from datasets/X_train.csv
+2025-05-26 21:06:05,525 - model_building - DEBUG - Data loaded successfully from datasets/y_train.csv
+2025-05-26 21:06:05,525 - model_building - INFO - Training data loaded successfully.
+2025-05-26 21:06:05,525 - model_building - DEBUG - Training RandomForestRegressor with params: {'n_estimators': 100, 'max_depth': 8}
+2025-05-26 21:06:46,374 - model_building - DEBUG - RandomForestRegressor trained successfully.
+2025-05-26 21:06:46,374 - model_building - DEBUG - Training GradientBoostingRegressor with params: {'n_estimators': 100, 'learning_rate': 1}
+2025-05-26 21:07:05,142 - model_building - DEBUG - GradientBoostingRegressor trained successfully.
+2025-05-26 21:07:05,142 - model_building - DEBUG - Training XGBRegressor with params: {'n_estimators': 100, 'learning_rate': 0.1}
+2025-05-26 21:07:07,443 - model_building - DEBUG - XGBRegressor trained successfully.
+2025-05-26 21:07:07,443 - model_building - DEBUG - Training LGBMRegressor with params: {'n_estimators': 90, 'learning_rate': 0.1}
+2025-05-26 21:07:10,283 - model_building - DEBUG - LGBMRegressor trained successfully.
+2025-05-26 21:07:10,283 - model_building - DEBUG - Training CatBoostRegressor with params: {'iterations': 120, 'learning_rate': 0.1, 'depth': 3, 'verbose': 0}
+2025-05-26 21:07:12,773 - model_building - DEBUG - CatBoostRegressor trained successfully.
+2025-05-26 21:13:40,579 - model_building - DEBUG - StackingRegressor trained successfully.
+2025-05-26 21:28:31,015 - model_building - DEBUG - VotingRegressor trained successfully.
+2025-05-26 21:28:31,018 - model_building - INFO - All models trained successfully.
+2025-05-26 21:28:31,062 - model_building - DEBUG - Model saved successfully to models\temp\randomforestregressor.pkl
+2025-05-26 21:28:31,070 - model_building - INFO - RandomForestRegressor model saved at models\temp\randomforestregressor.pkl.
+2025-05-26 21:28:31,076 - model_building - DEBUG - Model saved successfully to models\temp\gradientboostingregressor.pkl
+2025-05-26 21:28:31,107 - model_building - INFO - GradientBoostingRegressor model saved at models\temp\gradientboostingregressor.pkl.
+2025-05-26 21:28:31,128 - model_building - DEBUG - Model saved successfully to models\temp\xgbregressor.pkl
+2025-05-26 21:28:31,142 - model_building - INFO - XGBRegressor model saved at models\temp\xgbregressor.pkl.
+2025-05-26 21:28:31,160 - model_building - DEBUG - Model saved successfully to models\temp\lgbmregressor.pkl
+2025-05-26 21:28:31,163 - model_building - INFO - LGBMRegressor model saved at models\temp\lgbmregressor.pkl.
+2025-05-26 21:28:31,165 - model_building - DEBUG - Model saved successfully to models\temp\catboostregressor.pkl
+2025-05-26 21:28:31,168 - model_building - INFO - CatBoostRegressor model saved at models\temp\catboostregressor.pkl.
+2025-05-26 21:28:31,278 - model_building - DEBUG - Model saved successfully to models\temp\stackingregressor.pkl
+2025-05-26 21:28:31,283 - model_building - INFO - StackingRegressor model saved at models\temp\stackingregressor.pkl.
+2025-05-26 21:28:31,500 - model_building - DEBUG - Model saved successfully to models\temp\votingregressor.pkl
+2025-05-26 21:28:31,525 - model_building - INFO - VotingRegressor model saved at models\temp\votingregressor.pkl.

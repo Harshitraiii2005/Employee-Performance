@@ -104,17 +104,16 @@ def train_models(X_train, y_train, models_config):
 def main():
     try:
         params = load_params()
-        data_path = 'datasets/train.csv'
-        df = load_data(data_path)
 
-        X = df.drop(columns=['Employee_Satisfaction_Score'])
-        y = df['Employee_Satisfaction_Score']
-        logger.info("Data split into features and target variable.")
+        # Load X_train and y_train separately
+        X_train = load_data('datasets/X_train.csv')
+        y_train = load_data('datasets/y_train.csv')
 
-        trained_models = train_models(X, y, params['models'])
+        logger.info("Training data loaded successfully.")
+
+        trained_models = train_models(X_train, y_train, params['models'])
         logger.info("All models trained successfully.")
 
-        
         output_dir = os.path.join("models", "temp")
         os.makedirs(output_dir, exist_ok=True)
 

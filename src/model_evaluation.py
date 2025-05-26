@@ -7,7 +7,7 @@ import glob
 import shutil
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
-
+# Logger setup
 log_dir = "logs"
 os.makedirs(log_dir, exist_ok=True)
 
@@ -25,8 +25,9 @@ formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(messag
 console_handler.setFormatter(formatter)
 file_handler.setFormatter(formatter)
 
-logger.addHandler(console_handler)
-logger.addHandler(file_handler)
+if not logger.handlers:
+    logger.addHandler(console_handler)
+    logger.addHandler(file_handler)
 
 def load_model(model_path: str):
     try:
@@ -74,8 +75,7 @@ def save_metrics(metrics: dict, output_path: str):
         logger.error(f"Error saving metrics to {output_path}: {e}")
         raise
 
-def save_top_models(all_metrics, model_dir='models', top_dir='models/traditional', top_k=3):
-    
+def save_top_models(all_metrics, model_dir='models/temp', top_dir='models/traditional', top_k=3):
     sorted_models = sorted(all_metrics.items(), key=lambda x: x[1]['MSE'])
     top_models = sorted_models[:top_k]
 
@@ -92,15 +92,16 @@ def save_top_models(all_metrics, model_dir='models', top_dir='models/traditional
 
 def main():
     try:
-        model_dir = 'models'  
-        data_path = 'datasets/test.csv'
+        model_dir = 'models/temp'  # Directory where your models are saved
+        X_test_path = 'datasets/X_test.csv'  # Test features CSV
+        y_test_path = 'datasets/y_test.csv'  # Test target CSV
         metrics_dir = 'metrics/eval'
 
         os.makedirs(metrics_dir, exist_ok=True)
 
-        df = load_data(data_path)
-        X_test = df.drop(columns=['Employee_Satisfaction_Score'])
-        y_test = df['Employee_Satisfaction_Score']
+        X_test = load_data(X_test_path)
+        y_test_df = load_data(y_test_path)
+        y_test = y_test_df.iloc[:, 0]  # Assuming the target is the first column
 
         model_files = glob.glob(os.path.join(model_dir, '*.pkl'))
         if not model_files:
@@ -111,25 +112,20 @@ def main():
 
         for model_path in model_files:
             model_name = os.path.splitext(os.path.basename(model_path))[0]
-
             logger.info(f"Evaluating model: {model_name}")
             model = load_model(model_path)
             metrics = evaluate_model(model, X_test, y_test)
             all_metrics[model_name] = metrics
 
-            
             print(f"Metrics for {model_name}: MAE={metrics['MAE']:.4f}, MSE={metrics['MSE']:.4f}, R2={metrics['R2']:.4f}")
 
-            
             metrics_output_path = os.path.join(metrics_dir, f"{model_name}_metrics.json")
             save_metrics(metrics, metrics_output_path)
 
-        
         combined_metrics_path = os.path.join(metrics_dir, "all_models_metrics.json")
         save_metrics(all_metrics, combined_metrics_path)
         logger.info("All model metrics saved successfully.")
 
-        
         save_top_models(all_metrics, model_dir=model_dir, top_dir='models/traditional', top_k=3)
 
     except Exception as e:

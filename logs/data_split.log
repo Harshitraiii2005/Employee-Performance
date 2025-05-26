@@ -62,3 +62,21 @@
 2025-05-24 01:29:16,783 - data_split - INFO - Data split into training and testing sets.
 2025-05-24 01:29:20,783 - data_split - INFO - Training data saved to datasets\train.csv
 2025-05-24 01:29:20,783 - data_split - INFO - Testing data saved to datasets\test.csv
+2025-05-26 16:16:39,068 - data_split - INFO - Data Loaded Successfully
+2025-05-26 16:16:39,136 - data_split - INFO - Data shape: (100000, 33)
+2025-05-26 16:16:39,236 - data_split - INFO - Data columns: ['Age', 'Years_At_Company', 'Performance_Score', 'Monthly_Salary', 'Work_Hours_Per_Week', 'Projects_Handled', 'Overtime_Hours', 'Sick_Days', 'Remote_Work_Frequency', 'Team_Size', 'Training_Hours', 'Promotions', 'Department_Customer Support', 'Department_Engineering', 'Department_Finance', 'Department_HR', 'Department_IT', 'Department_Legal', 'Department_Marketing', 'Department_Operations', 'Department_Sales', 'Job_Title_Analyst', 'Job_Title_Consultant', 'Job_Title_Developer', 'Job_Title_Engineer', 'Job_Title_Manager', 'Job_Title_Specialist', 'Job_Title_Technician', 'Education_Level_Bachelor', 'Education_Level_High School', 'Education_Level_Master', 'Education_Level_PhD', 'Employee_Satisfaction_Score']
+2025-05-26 16:16:39,703 - data_split - INFO - Data head:
+        Age  Years_At_Company  Performance_Score  Monthly_Salary  ...  Education_Level_High School  Education_Level_Master  Education_Level_PhD  Employee_Satisfaction_Score
+0  1.242486         -0.862946           1.416939        0.252669  ...                          1.0                     0.0                  0.0                         2.63
+1 -1.069845         -1.559975           1.416939        0.799117  ...                          1.0                     0.0                  0.0                         1.72
+2  1.242486          1.228140           0.003230       -0.403068  ...                          1.0                     0.0                  0.0                         3.17
+3  0.619935          0.879626          -0.703624       -1.168094  ...                          0.0                     0.0                  0.0                         1.86
+4 -0.447295         -0.514432          -0.703624       -1.168094  ...                          0.0                     0.0                  0.0                         1.25
+
+[5 rows x 33 columns]
+2025-05-26 16:16:39,940 - data_split - DEBUG - Dataset split into training and testing sets.
+2025-05-26 16:16:40,027 - data_split - INFO - Data split into training and testing sets.
+2025-05-26 16:16:50,571 - data_split - INFO - Training features saved to datasets\X_train.csv
+2025-05-26 16:16:50,674 - data_split - INFO - Training target saved to datasets\y_train.csv
+2025-05-26 16:16:50,761 - data_split - INFO - Testing features saved to datasets\X_test.csv
+2025-05-26 16:16:50,844 - data_split - INFO - Testing target saved to datasets\y_test.csv

@@ -1,3 +1,36 @@
+numerical_features:
+  - Age
+  - Years_At_Company
+  - Performance_Score
+  - Monthly_Salary
+  - Work_Hours_Per_Week
+  - Projects_Handled
+  - Overtime_Hours
+  - Sick_Days
+  - Remote_Work_Frequency
+  - Team_Size
+  - Training_Hours
+  - Promotions
+
+categorical_features:
+  - Department
+  - Job_Title
+  - Education_Level
+
+preprocessing:
+  onehotencoder:
+    handle_unknown: ignore
+    sparse_output: false
+
+logging:
+  level: DEBUG
+
+paths:
+  raw_data: datasets/Extended_Employee_Performance_and_Productivity_Data_Raw.csv
+  processed_data: datasets/preprocessed_data.csv
+  log_dir: logs
+  log_file: data_preprocessing.log
+
 models:
   RandomForestRegressor:
     n_estimators: 100

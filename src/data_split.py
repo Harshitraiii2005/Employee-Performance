@@ -22,8 +22,10 @@ formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(messag
 console_handler.setFormatter(formatter)
 file_handler.setFormatter(formatter)
 
-logger.addHandler(console_handler)
-logger.addHandler(file_handler)
+if not logger.hasHandlers():
+    logger.addHandler(console_handler)
+    logger.addHandler(file_handler)
+
 
 def split_data(df: pd.DataFrame, test_size: float = 0.2, random_state: int = 42):
     try:
@@ -36,26 +38,30 @@ def split_data(df: pd.DataFrame, test_size: float = 0.2, random_state: int = 42)
         logger.error(f"Error in split_data function: {e}")
         raise
 
+
 def save_split_data(X_train, X_test, y_train, y_test, output_dir='datasets'):
     try:
         os.makedirs(output_dir, exist_ok=True)
 
-        
-        train_df = pd.concat([X_train, y_train], axis=1)
-        test_df = pd.concat([X_test, y_test], axis=1)
+        train_features_path = os.path.join(output_dir, "X_train.csv")
+        train_target_path = os.path.join(output_dir, "y_train.csv")
+        test_features_path = os.path.join(output_dir, "X_test.csv")
+        test_target_path = os.path.join(output_dir, "y_test.csv")
 
-        
-        train_path = os.path.join(output_dir, "train.csv")
-        test_path = os.path.join(output_dir, "test.csv")
+        X_train.to_csv(train_features_path, index=False)
+        y_train.to_csv(train_target_path, index=False)
+        X_test.to_csv(test_features_path, index=False)
+        y_test.to_csv(test_target_path, index=False)
 
-        train_df.to_csv(train_path, index=False)
-        test_df.to_csv(test_path, index=False)
+        logger.info(f"Training features saved to {train_features_path}")
+        logger.info(f"Training target saved to {train_target_path}")
+        logger.info(f"Testing features saved to {test_features_path}")
+        logger.info(f"Testing target saved to {test_target_path}")
 
-        logger.info(f"Training data saved to {train_path}")
-        logger.info(f"Testing data saved to {test_path}")
     except Exception as e:
         logger.error(f"Error saving split data: {e}")
         raise
+
 
 def main():
     try:
@@ -77,6 +83,7 @@ def main():
     except Exception as e:
         logger.error(f"Error in main function: {e}")
         raise
+
 
 if __name__ == "__main__":
     main()
