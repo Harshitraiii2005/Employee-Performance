@@ -38,7 +38,7 @@ def load_data(data_url: str) -> pd.DataFrame:
 def preprocess_data(df: pd.DataFrame, null_threshold: float = 0.3) -> pd.DataFrame:
     logger.info("Starting preprocessing")
 
-    # 1. Drop columns with null% above threshold
+    
     null_percent = df.isnull().mean()
     cols_to_drop = null_percent[null_percent > null_threshold].index.tolist()
     if cols_to_drop:
@@ -47,7 +47,7 @@ def preprocess_data(df: pd.DataFrame, null_threshold: float = 0.3) -> pd.DataFra
     else:
         logger.info("No columns dropped due to null values threshold")
 
-    # 2. Fill missing values for remaining columns
+    
     for col in df.columns:
         if df[col].isnull().any():
             if df[col].dtype in ['float64', 'int64']:
@@ -59,7 +59,7 @@ def preprocess_data(df: pd.DataFrame, null_threshold: float = 0.3) -> pd.DataFra
                 df[col].fillna(fill_val, inplace=True)
                 logger.info(f"Filled nulls in categorical column '{col}' with mode value '{fill_val}'")
 
-    # 3. Drop duplicate columns (columns with identical data)
+    
     before_cols = df.shape[1]
     df = df.loc[:, ~df.T.duplicated()]
     after_cols = df.shape[1]
