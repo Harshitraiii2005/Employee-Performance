@@ -33,3 +33,49 @@
 
 [5 rows x 20 columns]
 2025-05-26 16:08:34,276 - data_ingestion - INFO - Processed data saved successfully at datasets/Extended_Employee_Performance_and_Productivity_Data_Raw.csv
+2025-06-04 01:51:05,317 - data_ingestion - INFO - Data loaded successfully from: datasets/Extended_Employee_Performance_and_Productivity_Data.csv
+2025-06-04 01:51:05,352 - data_ingestion - INFO - Initial data shape: (100000, 20)
+2025-06-04 01:51:05,389 - data_ingestion - INFO - Starting preprocessing
+2025-06-04 01:51:05,432 - data_ingestion - INFO - No columns dropped due to null threshold
+2025-06-04 01:52:01,883 - data_ingestion - INFO - No duplicate columns found
+2025-06-04 01:52:01,891 - data_ingestion - INFO - Preprocessing completed
+2025-06-04 01:52:01,891 - data_ingestion - INFO - Processed data shape: (100000, 20)
+2025-06-04 01:52:01,926 - data_ingestion - INFO - Processed columns: ['Employee_ID', 'Department', 'Gender', 'Age', 'Job_Title', 'Hire_Date', 'Years_At_Company', 'Education_Level', 'Performance_Score', 'Monthly_Salary', 'Work_Hours_Per_Week', 'Projects_Handled', 'Overtime_Hours', 'Sick_Days', 'Remote_Work_Frequency', 'Team_Size', 'Training_Hours', 'Promotions', 'Employee_Satisfaction_Score', 'Resigned']
+2025-06-04 01:52:02,046 - data_ingestion - INFO - Head of processed data:
+   Employee_ID        Department  Gender  Age   Job_Title  ... Team_Size  Training_Hours Promotions  Employee_Satisfaction_Score  Resigned
+0            1                IT    Male   55  Specialist  ...        14              66          0                         2.63     False
+1            2           Finance    Male   29   Developer  ...        12              61          2                         1.72     False
+2            3           Finance    Male   55  Specialist  ...        10               1          0                         3.17     False
+3            4  Customer Support  Female   48     Analyst  ...        10               0          1                         1.86     False
+4            5       Engineering  Female   36     Analyst  ...        15               9          1                         1.25     False
+
+[5 rows x 20 columns]
+2025-06-04 01:52:02,074 - data_ingestion - INFO - Resigned value counts:
+Resigned
+False    89990
+True     10010
+Name: count, dtype: int64
+2025-06-04 01:52:03,304 - data_ingestion - INFO - Processed data saved at: datasets/Extended_Employee_Performance_and_Productivity_Data_Raw.csv
+2025-06-04 16:49:39,911 - data_ingestion - INFO - Data loaded successfully from: datasets/Extended_Employee_Performance_and_Productivity_Data.csv
+2025-06-04 16:49:39,935 - data_ingestion - INFO - Initial data shape: (100000, 20)
+2025-06-04 16:49:39,958 - data_ingestion - INFO - Starting preprocessing
+2025-06-04 16:49:40,024 - data_ingestion - INFO - No columns dropped due to null threshold
+2025-06-04 16:50:33,448 - data_ingestion - INFO - No duplicate columns found
+2025-06-04 16:50:33,448 - data_ingestion - INFO - Preprocessing completed
+2025-06-04 16:50:33,449 - data_ingestion - INFO - Processed data shape: (100000, 20)
+2025-06-04 16:50:33,449 - data_ingestion - INFO - Processed columns: ['Employee_ID', 'Department', 'Gender', 'Age', 'Job_Title', 'Hire_Date', 'Years_At_Company', 'Education_Level', 'Performance_Score', 'Monthly_Salary', 'Work_Hours_Per_Week', 'Projects_Handled', 'Overtime_Hours', 'Sick_Days', 'Remote_Work_Frequency', 'Team_Size', 'Training_Hours', 'Promotions', 'Employee_Satisfaction_Score', 'Resigned']
+2025-06-04 16:50:33,484 - data_ingestion - INFO - Head of processed data:
+   Employee_ID        Department  Gender  Age   Job_Title  ... Team_Size  Training_Hours Promotions  Employee_Satisfaction_Score  Resigned
+0            1                IT    Male   55  Specialist  ...        14              66          0                         2.63     False
+1            2           Finance    Male   29   Developer  ...        12              61          2                         1.72     False
+2            3           Finance    Male   55  Specialist  ...        10               1          0                         3.17     False
+3            4  Customer Support  Female   48     Analyst  ...        10               0          1                         1.86     False
+4            5       Engineering  Female   36     Analyst  ...        15               9          1                         1.25     False
+
+[5 rows x 20 columns]
+2025-06-04 16:50:33,489 - data_ingestion - INFO - Resigned value counts:
+Resigned
+False    89990
+True     10010
+Name: count, dtype: int64
+2025-06-04 16:50:35,021 - data_ingestion - INFO - Processed data saved at: datasets/Extended_Employee_Performance_and_Productivity_Data_Raw.csv

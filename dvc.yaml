@@ -21,15 +21,18 @@ stages:
       - src/data_split.py
       - data/processed_data.csv
     outs:
-      - datasets/train.csv
-      - datasets/X_test.csv
-      - datasets/y_test.csv
+     - datasets/X_train.csv
+     - datasets/y_train.csv
+     - datasets/X_test.csv
+     - datasets/y_test.csv
+
 
   model_training:
     cmd: python src/model_building.py
     deps:
       - src/model_building.py
-      - datasets/train.csv
+      - datasets/X_train.csv
+      - datasets/y_train.csv
       - params.yaml
     outs:
       - models/temp/

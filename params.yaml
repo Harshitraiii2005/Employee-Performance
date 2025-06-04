@@ -12,6 +12,91 @@ numerical_features:
   - Training_Hours
   - Promotions
 
+
+preprocessing:
+  onehotencoder:
+    sparse_output: false
+
+
+
+target_column: Resigned
+feature_importance_threshold: 10  # or any number that fits your data (LightGBM importances scale)
+null_threshold: 70.0  # percentage threshold to drop columns with many nulls
+duplicate_threshold: 10.0  # percentage threshold for duplicates
+preprocessing:
+  onehotencoder:
+    handle_unknown: ignore
+    sparse: false
+paths:
+  raw_data: datasets/Extended_Employee_Performance_and_Productivity_Data_Raw.csv
+  processed_data: datasets/preprocessed_data.csv
+  X_train: datasets/X_train.csv
+  X_test: datasets/X_test.csv
+  y_train: datasets/y_train.csv
+  y_test: datasets/y_test.csv
+  model_dir: models
+  preprocessor_save_path: models/preprocessor.pkl
+  log_dir: logs
+  log_file: model_building.log
+
+paths:
+  log_dir: logs
+  log_file: model_building.log
+
+logging:
+  level: DEBUG
+
+models:
+  LogisticRegression:
+    max_iter: 1000
+    solver: lbfgs
+    n_jobs: -1
+
+  RidgeClassifier:
+    alpha: 1.0
+    solver: auto
+
+  RandomForestClassifier:
+    n_estimators: 100
+    max_depth: 10
+    random_state: 42
+    n_jobs: -1
+
+  ExtraTreesClassifier:
+    n_estimators: 100
+    max_depth: 10
+    random_state: 42
+    n_jobs: -1
+
+  GradientBoostingClassifier:
+    n_estimators: 100
+    learning_rate: 0.1
+    max_depth: 3
+    random_state: 42
+
+  XGBClassifier:
+    n_estimators: 100
+    learning_rate: 0.1
+    max_depth: 3
+    use_label_encoder: false
+    eval_metric: logloss
+    random_state: 42
+
+  LGBMClassifier:
+    n_estimators: 100
+    learning_rate: 0.1
+    max_depth: 10
+    random_state: 42
+
+  CatBoostClassifier:
+    iterations: 100
+    learning_rate: 0.1
+    depth: 6
+    verbose: false
+    random_seed: 42
+
+
+
 categorical_features:
   - Department
   - Job_Title
@@ -31,25 +116,3 @@ paths:
   log_dir: logs
   log_file: data_preprocessing.log
 
-models:
-  RandomForestRegressor:
-    n_estimators: 100
-    max_depth: 8
-
-  GradientBoostingRegressor:
-    n_estimators: 100
-    learning_rate: 1
-
-  XGBRegressor:
-    n_estimators: 100
-    learning_rate: 0.1
-
-  LGBMRegressor:
-    n_estimators: 90
-    learning_rate: 0.1
-
-  CatBoostRegressor:
-    iterations: 120
-    learning_rate: 0.1
-    depth: 3
-    verbose: 0

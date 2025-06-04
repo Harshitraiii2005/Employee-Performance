@@ -1,13 +1,12 @@
 import os
 import logging
 import pandas as pd
+import yaml
 from sklearn.model_selection import train_test_split
-
 
 log_dir = "logs"
 os.makedirs(log_dir, exist_ok=True)
 
-# Set up logger
 logger = logging.getLogger("data_split")
 logger.setLevel(logging.DEBUG)
 
@@ -27,62 +26,56 @@ if not logger.hasHandlers():
     logger.addHandler(file_handler)
 
 
-def split_data(df: pd.DataFrame, test_size: float = 0.2, random_state: int = 42):
-    try:
-        X = df.drop(columns=['Employee_Satisfaction_Score'])
-        y = df['Employee_Satisfaction_Score']
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
-        logger.debug("Dataset split into training and testing sets.")
-        return X_train, X_test, y_train, y_test
-    except Exception as e:
-        logger.error(f"Error in split_data function: {e}")
-        raise
+def load_params(path: str = "params.yaml"):
+    if not os.path.exists(path):
+        logger.error(f"Params file not found: {path}")
+        raise FileNotFoundError(f"Params file not found: {path}")
+    with open(path, 'r') as f:
+        params = yaml.safe_load(f)
+    if 'target_column' not in params:
+        logger.error("'target_column' not found in params.yaml")
+        raise KeyError("'target_column' not found in params.yaml")
+    return params
+
+
+def split_data(df: pd.DataFrame, target_col: str, test_size: float = 0.2, random_state: int = 42):
+    if target_col not in df.columns:
+        logger.error(f"Target column '{target_col}' not found in dataframe")
+        raise KeyError(f"Target column '{target_col}' not found in dataframe")
+    X = df.drop(columns=[target_col])
+    y = df[target_col]
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=test_size, random_state=random_state
+    )
+    logger.debug(f"Data split with test_size={test_size}")
+    logger.debug(f"Train features shape: {X_train.shape}, Test features shape: {X_test.shape}")
+    return X_train, X_test, y_train, y_test
 
 
 def save_split_data(X_train, X_test, y_train, y_test, output_dir='datasets'):
-    try:
-        os.makedirs(output_dir, exist_ok=True)
-
-        train_features_path = os.path.join(output_dir, "X_train.csv")
-        train_target_path = os.path.join(output_dir, "y_train.csv")
-        test_features_path = os.path.join(output_dir, "X_test.csv")
-        test_target_path = os.path.join(output_dir, "y_test.csv")
-
-        X_train.to_csv(train_features_path, index=False)
-        y_train.to_csv(train_target_path, index=False)
-        X_test.to_csv(test_features_path, index=False)
-        y_test.to_csv(test_target_path, index=False)
-
-        logger.info(f"Training features saved to {train_features_path}")
-        logger.info(f"Training target saved to {train_target_path}")
-        logger.info(f"Testing features saved to {test_features_path}")
-        logger.info(f"Testing target saved to {test_target_path}")
-
-    except Exception as e:
-        logger.error(f"Error saving split data: {e}")
-        raise
+    os.makedirs(output_dir, exist_ok=True)
+    X_train.to_csv(os.path.join(output_dir, "X_train.csv"), index=False)
+    y_train.to_csv(os.path.join(output_dir, "y_train.csv"), index=False)
+    X_test.to_csv(os.path.join(output_dir, "X_test.csv"), index=False)
+    y_test.to_csv(os.path.join(output_dir, "y_test.csv"), index=False)
+    logger.info(f"Split data saved in directory: {output_dir}")
 
 
 def main():
-    try:
-        data_path = 'data/processed_data.csv'
-        if not os.path.exists(data_path):
-            logger.error(f"Data file not found at {data_path}")
-            raise FileNotFoundError(f"Data file not found at {data_path}")
+    params = load_params()
+    data_path = params['paths']['processed_data']
+    target_col = params['target_column']
+    if not os.path.exists(data_path):
+        logger.error(f"Data file not found at {data_path}")
+        raise FileNotFoundError(f"Data file not found at {data_path}")
 
-        df = pd.read_csv(data_path)
-        logger.info("Data Loaded Successfully")
-        logger.info(f"Data shape: {df.shape}")
-        logger.info(f"Data columns: {df.columns.tolist()}")
-        logger.info(f"Data head:\n{df.head()}")
+    df = pd.read_csv(data_path)
+    logger.info(f"Data loaded from {data_path} with shape {df.shape}")
 
-        X_train, X_test, y_train, y_test = split_data(df)
-        logger.info("Data split into training and testing sets.")
+    X_train, X_test, y_train, y_test = split_data(df, target_col)
+    logger.info("Data split into training and testing sets")
 
-        save_split_data(X_train, X_test, y_train, y_test)
-    except Exception as e:
-        logger.error(f"Error in main function: {e}")
-        raise
+    save_split_data(X_train, X_test, y_train, y_test, output_dir=params['paths'].get('split_data_dir', 'datasets'))
 
 
 if __name__ == "__main__":

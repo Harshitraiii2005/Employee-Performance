@@ -27,3 +27,380 @@
 2025-05-26 16:14:50,825 - data_preprocessing - INFO - Features preprocessing completed.
 2025-05-26 16:14:50,875 - data_preprocessing - DEBUG - Processed features shape: (100000, 32)
 2025-05-26 16:15:01,894 - data_preprocessing - INFO - Preprocessed data saved at datasets/preprocessed_data.csv.
+2025-06-04 01:58:16,144 - data_preprocessing - INFO - Raw data loaded from datasets/Extended_Employee_Performance_and_Productivity_Data_Raw.csv with shape (100000, 20).
+2025-06-04 01:58:16,355 - data_preprocessing - INFO - Duplicate percentage 0.00% is below threshold 10.0%, no rows dropped.
+2025-06-04 01:58:16,408 - data_preprocessing - ERROR - Target column 'target' not found in data columns: ['Employee_ID', 'Department', 'Gender', 'Age', 'Job_Title', 'Hire_Date', 'Years_At_Company', 'Education_Level', 'Performance_Score', 'Monthly_Salary', 'Work_Hours_Per_Week', 'Projects_Handled', 'Overtime_Hours', 'Sick_Days', 'Remote_Work_Frequency', 'Team_Size', 'Training_Hours', 'Promotions', 'Employee_Satisfaction_Score', 'Resigned']
+2025-06-04 01:58:16,474 - data_preprocessing - ERROR - Error in main execution: "Target column 'target' not found in dataframe"
+2025-06-04 01:59:20,365 - data_preprocessing - INFO - Raw data loaded from datasets/Extended_Employee_Performance_and_Productivity_Data_Raw.csv with shape (100000, 20).
+2025-06-04 01:59:20,621 - data_preprocessing - INFO - Duplicate percentage 0.00% is below threshold 10.0%, no rows dropped.
+2025-06-04 01:59:20,666 - data_preprocessing - DEBUG - Split data into X (shape: (100000, 19)) and y (shape: (100000,)).
+2025-06-04 01:59:20,667 - data_preprocessing - INFO - Training LightGBM classifier to compute feature importances.
+2025-06-04 01:59:26,374 - data_preprocessing - ERROR - Error in main execution: pandas dtypes must be int, float or bool.
+Fields with bad pandas dtypes: Department: object, Gender: object, Job_Title: object, Hire_Date: object, Education_Level: object
+2025-06-04 02:01:34,782 - data_preprocessing - INFO - Loading raw data from datasets/Extended_Employee_Performance_and_Productivity_Data_Raw.csv
+2025-06-04 02:01:35,239 - data_preprocessing - INFO - Raw data shape: (100000, 20)
+2025-06-04 02:01:35,320 - data_preprocessing - INFO - No columns dropped for null threshold 70.0%
+2025-06-04 02:01:35,525 - data_preprocessing - INFO - Duplicate percentage 0.00% is below threshold 10.0%, no rows dropped
+2025-06-04 02:01:35,555 - data_preprocessing - ERROR - Target column 'YourTargetColumnNameHere' not found in dataframe columns: ['Employee_ID', 'Department', 'Gender', 'Age', 'Job_Title', 'Hire_Date', 'Years_At_Company', 'Education_Level', 'Performance_Score', 'Monthly_Salary', 'Work_Hours_Per_Week', 'Projects_Handled', 'Overtime_Hours', 'Sick_Days', 'Remote_Work_Frequency', 'Team_Size', 'Training_Hours', 'Promotions', 'Employee_Satisfaction_Score', 'Resigned']
+2025-06-04 02:01:35,589 - data_preprocessing - ERROR - Error in main execution: "Target column 'YourTargetColumnNameHere' not found in dataframe"
+2025-06-04 02:02:24,201 - data_preprocessing - INFO - Loading raw data from datasets/Extended_Employee_Performance_and_Productivity_Data_Raw.csv
+2025-06-04 02:02:24,698 - data_preprocessing - INFO - Raw data shape: (100000, 20)
+2025-06-04 02:02:24,772 - data_preprocessing - INFO - No columns dropped for null threshold 70.0%
+2025-06-04 02:02:24,978 - data_preprocessing - INFO - Duplicate percentage 0.00% is below threshold 10.0%, no rows dropped
+2025-06-04 02:02:25,045 - data_preprocessing - INFO - Label encoding column: Department
+2025-06-04 02:02:25,120 - data_preprocessing - INFO - Label encoding column: Gender
+2025-06-04 02:02:25,198 - data_preprocessing - INFO - Label encoding column: Job_Title
+2025-06-04 02:02:25,319 - data_preprocessing - INFO - Label encoding column: Hire_Date
+2025-06-04 02:02:25,416 - data_preprocessing - INFO - Label encoding column: Education_Level
+2025-06-04 02:02:25,536 - data_preprocessing - INFO - Training LightGBM classifier to compute feature importances.
+2025-06-04 02:04:54,860 - data_preprocessing - DEBUG - Feature importances:
+                        feature  importance
+5                     Hire_Date         319
+0                   Employee_ID         318
+18  Employee_Satisfaction_Score         313
+16               Training_Hours         248
+11             Projects_Handled         239
+12               Overtime_Hours         206
+3                           Age         200
+10          Work_Hours_Per_Week         200
+9                Monthly_Salary         179
+15                    Team_Size         166
+13                    Sick_Days         149
+1                    Department         122
+14        Remote_Work_Frequency          75
+4                     Job_Title          72
+8             Performance_Score          59
+17                   Promotions          44
+7               Education_Level          43
+2                        Gender          36
+6              Years_At_Company          12
+2025-06-04 02:04:54,861 - data_preprocessing - INFO - Selected 19 features with importance >= 10
+2025-06-04 02:04:54,877 - data_preprocessing - INFO - Dropped 0 features with importance < 10: []
+2025-06-04 02:04:54,895 - data_preprocessing - INFO - Selected features for final preprocessing: ['Employee_ID', 'Department', 'Gender', 'Age', 'Job_Title', 'Hire_Date', 'Years_At_Company', 'Education_Level', 'Performance_Score', 'Monthly_Salary', 'Work_Hours_Per_Week', 'Projects_Handled', 'Overtime_Hours', 'Sick_Days', 'Remote_Work_Frequency', 'Team_Size', 'Training_Hours', 'Promotions', 'Employee_Satisfaction_Score']
+2025-06-04 02:04:54,936 - data_preprocessing - INFO - Starting final preprocessing: scaling numerical and one-hot encoding categorical features
+2025-06-04 02:04:54,951 - data_preprocessing - ERROR - Error in main execution: sklearn.preprocessing._encoders.OneHotEncoder() got multiple values for keyword argument 'handle_unknown'
+2025-06-04 02:07:19,641 - data_preprocessing - INFO - Loading raw data from datasets/Extended_Employee_Performance_and_Productivity_Data_Raw.csv
+2025-06-04 02:07:20,153 - data_preprocessing - INFO - Raw data shape: (100000, 20)
+2025-06-04 02:07:20,226 - data_preprocessing - INFO - No columns dropped for null threshold 70.0%
+2025-06-04 02:07:20,491 - data_preprocessing - INFO - Duplicate percentage 0.00% is below threshold 10.0%, no rows dropped
+2025-06-04 02:07:20,696 - data_preprocessing - INFO - Label encoding column: Department
+2025-06-04 02:07:20,803 - data_preprocessing - INFO - Label encoding column: Gender
+2025-06-04 02:07:20,853 - data_preprocessing - INFO - Label encoding column: Job_Title
+2025-06-04 02:07:20,943 - data_preprocessing - INFO - Label encoding column: Hire_Date
+2025-06-04 02:07:21,044 - data_preprocessing - INFO - Label encoding column: Education_Level
+2025-06-04 02:07:21,103 - data_preprocessing - INFO - Training LightGBM classifier to compute feature importances.
+2025-06-04 02:09:24,719 - data_preprocessing - DEBUG - Feature importances:
+                        feature  importance
+5                     Hire_Date         319
+0                   Employee_ID         318
+18  Employee_Satisfaction_Score         313
+16               Training_Hours         248
+11             Projects_Handled         239
+12               Overtime_Hours         206
+3                           Age         200
+10          Work_Hours_Per_Week         200
+9                Monthly_Salary         179
+15                    Team_Size         166
+13                    Sick_Days         149
+1                    Department         122
+14        Remote_Work_Frequency          75
+4                     Job_Title          72
+8             Performance_Score          59
+17                   Promotions          44
+7               Education_Level          43
+2                        Gender          36
+6              Years_At_Company          12
+2025-06-04 02:09:24,720 - data_preprocessing - INFO - Selected 19 features with importance >= 10
+2025-06-04 02:09:24,747 - data_preprocessing - INFO - Dropped 0 features with importance < 10: []
+2025-06-04 02:09:24,780 - data_preprocessing - INFO - Selected features for final preprocessing: ['Employee_ID', 'Department', 'Gender', 'Age', 'Job_Title', 'Hire_Date', 'Years_At_Company', 'Education_Level', 'Performance_Score', 'Monthly_Salary', 'Work_Hours_Per_Week', 'Projects_Handled', 'Overtime_Hours', 'Sick_Days', 'Remote_Work_Frequency', 'Team_Size', 'Training_Hours', 'Promotions', 'Employee_Satisfaction_Score']
+2025-06-04 02:09:24,827 - data_preprocessing - INFO - Starting final preprocessing: scaling numerical and one-hot encoding categorical features
+2025-06-04 02:09:32,488 - data_preprocessing - INFO - Final preprocessing done. Processed data shape: (100000, 3687)
+2025-06-04 02:09:32,511 - data_preprocessing - INFO - Preprocessor saved at models/preprocessor.pkl
+2025-06-04 16:53:01,040 - data_preprocessing - INFO - Raw data loaded from datasets/Extended_Employee_Performance_and_Productivity_Data_Raw.csv with shape (100000, 20).
+2025-06-04 16:53:01,066 - data_preprocessing - DEBUG - Split data into X (shape: (100000, 19)) and y (shape: (100000,)).
+2025-06-04 16:53:01,067 - data_preprocessing - DEBUG - Preprocessing features: 12 numerical, 3 categorical.
+2025-06-04 16:53:01,112 - data_preprocessing - ERROR - Error in main execution: sklearn.preprocessing._encoders.OneHotEncoder() got multiple values for keyword argument 'handle_unknown'
+2025-06-04 16:54:29,498 - data_preprocessing - INFO - Raw data loaded from datasets/Extended_Employee_Performance_and_Productivity_Data_Raw.csv with shape (100000, 20).
+2025-06-04 16:54:29,530 - data_preprocessing - DEBUG - Split data into X (shape: (100000, 19)) and y (shape: (100000,)).
+2025-06-04 16:54:29,530 - data_preprocessing - DEBUG - Preprocessing features: 12 numerical, 3 categorical.
+2025-06-04 16:54:29,933 - data_preprocessing - INFO - Feature preprocessing completed.
+2025-06-04 16:54:29,983 - data_preprocessing - DEBUG - Processed features shape: (100000, 32)
+2025-06-04 16:54:36,092 - data_preprocessing - INFO - Preprocessed data saved at datasets/preprocessed_data.csv.
+2025-06-04 16:54:36,103 - data_preprocessing - INFO - Preprocessor saved at preprocessor.pkl
+2025-06-04 16:54:36,139 - data_preprocessing - INFO - Data preprocessing completed in 7.16 seconds.
+2025-06-04 16:57:56,229 - ERROR - Exception in main: 'x_train'
+Traceback (most recent call last):
+  File "D:\Employee-Performance\src\model_building.py", line 150, in main
+    x_train_path = base_path / params['paths']['x_train']
+                               ~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'x_train'
+2025-06-04 16:59:19,267 - ERROR - Exception in main: 'x_train'
+Traceback (most recent call last):
+  File "D:\Employee-Performance\src\model_building.py", line 150, in main
+    x_train_path = base_path / params['paths']['x_train']
+                               ~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'x_train'
+2025-06-04 17:00:00,936 - ERROR - Exception in main: 'x_train'
+Traceback (most recent call last):
+  File "D:\Employee-Performance\src\model_building.py", line 150, in main
+    x_train_path = params['paths']['x_train']
+                   ~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'x_train'
+2025-06-04 17:01:56,019 - ERROR - Exception in main: 'x_train'
+Traceback (most recent call last):
+  File "D:\Employee-Performance\src\model_building.py", line 150, in main
+    x_train_path = params['paths']['x_train']
+                   ~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'x_train'
+2025-06-04 17:02:49,396 - ERROR - Exception in main: 'x_train'
+Traceback (most recent call last):
+  File "D:\Employee-Performance\src\model_building.py", line 150, in main
+    x_train_path = params['paths']['x_train']
+                   ~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'x_train'
+2025-06-04 17:03:45,293 - ERROR - Exception in main: 'X_train'
+Traceback (most recent call last):
+  File "D:\Employee-Performance\src\model_building.py", line 150, in main
+    x_train_path = params['paths']['X_train']
+                   ~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'X_train'
+2025-06-04 17:04:55,078 - ERROR - Exception in main: 'X_train'
+Traceback (most recent call last):
+  File "D:\Employee-Performance\src\model_building.py", line 150, in main
+    x_train_path = params['paths']['X_train']
+                   ~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'X_train'
+2025-06-04 17:07:38,759 - ERROR - Exception in main: 'X_train'
+Traceback (most recent call last):
+  File "D:\Employee-Performance\src\model_building.py", line 161, in main
+    x_train_path = Path(params['paths']['X_train'])
+                        ~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'X_train'
+2025-06-04 17:09:35,171 - ERROR - Exception in main: 'X_train'
+Traceback (most recent call last):
+  File "D:\Employee-Performance\src\model_building.py", line 161, in main
+    x_train_path = Path(params['paths']['X_train'])
+                        ~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'X_train'
+2025-06-04 17:15:27,835 - ERROR - Exception in main: 'X_train'
+Traceback (most recent call last):
+  File "D:\Employee-Performance\src\model_building.py", line 150, in main
+    x_train_path = params['paths']['X_train']
+                   ~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'X_train'
+2025-06-04 17:19:04,017 - ERROR - Exception in main: unsupported operand type(s) for /: 'str' and 'str'
+Traceback (most recent call last):
+  File "D:\Employee-Performance\src\model_building.py", line 146, in main
+    x_train_path = "datasets" / "X_train.csv"
+                   ~~~~~~~~~~~^~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for /: 'str' and 'str'
+2025-06-04 17:23:30,656 - DEBUG - Loaded data from datasets\X_train.csv with shape (80000, 32)
+2025-06-04 17:23:30,709 - DEBUG - Loaded data from datasets\y_train.csv with shape (80000, 1)
+2025-06-04 17:23:30,755 - DEBUG - Numerical features: ['Age', 'Years_At_Company', 'Performance_Score', 'Monthly_Salary', 'Work_Hours_Per_Week', 'Projects_Handled', 'Overtime_Hours', 'Sick_Days', 'Remote_Work_Frequency', 'Team_Size', 'Training_Hours', 'Promotions']
+2025-06-04 17:23:30,792 - DEBUG - Categorical features: ['Department', 'Job_Title', 'Education_Level']
+2025-06-04 17:23:30,814 - DEBUG - OneHotEncoder params: {'handle_unknown': 'ignore', 'sparse': False}
+2025-06-04 17:23:30,838 - ERROR - Exception in main: OneHotEncoder.__init__() got an unexpected keyword argument 'sparse'
+Traceback (most recent call last):
+  File "D:\Employee-Performance\src\model_building.py", line 158, in main
+    preprocessor = create_preprocessor(params, logger)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Employee-Performance\src\model_building.py", line 62, in create_preprocessor
+    categorical_transformer = OneHotEncoder(**ohe_params)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: OneHotEncoder.__init__() got an unexpected keyword argument 'sparse'
+2025-06-04 17:25:23,037 - DEBUG - Loaded data from datasets\X_train.csv with shape (80000, 32)
+2025-06-04 17:25:23,096 - DEBUG - Loaded data from datasets\y_train.csv with shape (80000, 1)
+2025-06-04 17:25:23,135 - DEBUG - Numerical features: ['Age', 'Years_At_Company', 'Performance_Score', 'Monthly_Salary', 'Work_Hours_Per_Week', 'Projects_Handled', 'Overtime_Hours', 'Sick_Days', 'Remote_Work_Frequency', 'Team_Size', 'Training_Hours', 'Promotions']
+2025-06-04 17:25:23,170 - DEBUG - Categorical features: ['Department', 'Job_Title', 'Education_Level']
+2025-06-04 17:25:23,195 - DEBUG - OneHotEncoder params: {'handle_unknown': 'ignore', 'sparse_output': False}
+2025-06-04 17:25:23,221 - INFO - Fitting preprocessor on training data...
+2025-06-04 17:25:23,259 - ERROR - Exception in main: A given column is not a column of the dataframe
+Traceback (most recent call last):
+  File "C:\Users\uphar\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\indexes\base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Department'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\uphar\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\utils\_indexing.py", line 364, in _get_column_indices
+    col_idx = all_columns.get_loc(col)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uphar\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Department'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Employee-Performance\src\model_building.py", line 158, in main
+    X_train_processed = preprocessor.fit_transform(X_train)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uphar\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\utils\_set_output.py", line 319, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uphar\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\base.py", line 1389, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uphar\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\compose\_column_transformer.py", line 993, in fit_transform
+    self._validate_column_callables(X)
+  File "C:\Users\uphar\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\compose\_column_transformer.py", line 552, in _validate_column_callables
+    transformer_to_input_indices[name] = _get_column_indices(X, columns)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uphar\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\utils\_indexing.py", line 372, in _get_column_indices
+    raise ValueError("A given column is not a column of the dataframe") from e
+ValueError: A given column is not a column of the dataframe
+2025-06-04 17:31:21,033 - DEBUG - Loaded data from datasets\X_train.csv with shape (80000, 32)
+2025-06-04 17:31:21,099 - DEBUG - Loaded data from datasets\y_train.csv with shape (80000, 1)
+2025-06-04 17:31:21,121 - WARNING - RandomForestRegressor is not supported. Skipping.
+2025-06-04 17:31:21,135 - WARNING - GradientBoostingRegressor is not supported. Skipping.
+2025-06-04 17:31:21,163 - WARNING - XGBRegressor is not supported. Skipping.
+2025-06-04 17:31:21,204 - WARNING - LGBMRegressor is not supported. Skipping.
+2025-06-04 17:31:21,217 - WARNING - CatBoostRegressor is not supported. Skipping.
+2025-06-04 17:31:21,258 - INFO - Top 3 models: []
+2025-06-04 17:32:29,259 - DEBUG - Loaded data from datasets\X_train.csv with shape (80000, 32)
+2025-06-04 17:32:29,303 - DEBUG - Loaded data from datasets\y_train.csv with shape (80000, 1)
+2025-06-04 17:32:29,330 - WARNING - RandomForestRegressor is not supported. Skipping.
+2025-06-04 17:32:29,366 - WARNING - GradientBoostingRegressor is not supported. Skipping.
+2025-06-04 17:32:29,404 - WARNING - XGBRegressor is not supported. Skipping.
+2025-06-04 17:32:29,417 - WARNING - LGBMRegressor is not supported. Skipping.
+2025-06-04 17:32:29,445 - WARNING - CatBoostRegressor is not supported. Skipping.
+2025-06-04 17:32:29,456 - INFO - Top 3 models: []
+2025-06-04 17:33:13,873 - DEBUG - Loaded data from datasets\X_train.csv with shape (80000, 32)
+2025-06-04 17:33:13,905 - DEBUG - Loaded data from datasets\y_train.csv with shape (80000, 1)
+2025-06-04 17:33:13,921 - WARNING - RandomForestRegressor is not supported. Skipping.
+2025-06-04 17:33:13,953 - WARNING - GradientBoostingRegressor is not supported. Skipping.
+2025-06-04 17:33:13,959 - WARNING - XGBRegressor is not supported. Skipping.
+2025-06-04 17:33:13,993 - WARNING - LGBMRegressor is not supported. Skipping.
+2025-06-04 17:33:14,001 - WARNING - CatBoostRegressor is not supported. Skipping.
+2025-06-04 17:33:14,035 - INFO - Top 3 models: []
+2025-06-04 17:36:22,482 - DEBUG - Loaded data from datasets\X_train.csv with shape (80000, 32)
+2025-06-04 17:36:22,526 - DEBUG - Loaded data from datasets\y_train.csv with shape (80000, 1)
+2025-06-04 17:36:22,736 - DEBUG - Loaded data from datasets\X_test.csv with shape (20000, 32)
+2025-06-04 17:36:22,809 - DEBUG - Loaded data from datasets\y_test.csv with shape (20000, 1)
+2025-06-04 17:36:22,815 - WARNING - RandomForestRegressor is not supported. Skipping.
+2025-06-04 17:36:22,848 - WARNING - GradientBoostingRegressor is not supported. Skipping.
+2025-06-04 17:36:22,853 - WARNING - XGBRegressor is not supported. Skipping.
+2025-06-04 17:36:22,887 - WARNING - LGBMRegressor is not supported. Skipping.
+2025-06-04 17:36:22,891 - WARNING - CatBoostRegressor is not supported. Skipping.
+2025-06-04 17:36:22,931 - INFO - Top 3 models by test accuracy: []
+2025-06-04 17:37:55,236 - DEBUG - Loaded data from datasets\X_train.csv with shape (80000, 32)
+2025-06-04 17:37:55,277 - DEBUG - Loaded data from datasets\y_train.csv with shape (80000, 1)
+2025-06-04 17:37:55,513 - DEBUG - Loaded data from datasets\X_test.csv with shape (20000, 32)
+2025-06-04 17:37:55,545 - DEBUG - Loaded data from datasets\y_test.csv with shape (20000, 1)
+2025-06-04 17:37:55,563 - DEBUG - Training LogisticRegression with params: {'max_iter': 1000, 'solver': 'lbfgs', 'n_jobs': -1}
+2025-06-04 17:38:08,294 - INFO - LogisticRegression trained with test accuracy: 0.9014
+2025-06-04 17:38:08,316 - DEBUG - Training RidgeClassifier with params: {'alpha': 1.0, 'solver': 'auto'}
+2025-06-04 17:38:14,539 - INFO - RidgeClassifier trained with test accuracy: 0.9014
+2025-06-04 17:38:14,545 - DEBUG - Training RandomForestClassifier with params: {'n_estimators': 100, 'max_depth': 10, 'random_state': 42, 'n_jobs': -1}
+2025-06-04 17:38:19,384 - INFO - RandomForestClassifier trained with test accuracy: 0.9014
+2025-06-04 17:38:19,406 - DEBUG - Training ExtraTreesClassifier with params: {'n_estimators': 100, 'max_depth': 10, 'random_state': 42, 'n_jobs': -1}
+2025-06-04 17:38:23,342 - INFO - ExtraTreesClassifier trained with test accuracy: 0.9014
+2025-06-04 17:38:23,362 - DEBUG - Training GradientBoostingClassifier with params: {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3, 'random_state': 42}
+2025-06-04 17:38:47,803 - INFO - GradientBoostingClassifier trained with test accuracy: 0.9014
+2025-06-04 17:38:47,811 - DEBUG - Training XGBClassifier with params: {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3, 'use_label_encoder': False, 'eval_metric': 'logloss', 'random_state': 42}
+2025-06-04 17:39:09,405 - INFO - XGBClassifier trained with test accuracy: 0.9014
+2025-06-04 17:39:09,414 - DEBUG - Training LGBMClassifier with params: {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 10, 'random_state': 42}
+2025-06-04 17:41:34,709 - INFO - LGBMClassifier trained with test accuracy: 0.9014
+2025-06-04 17:41:34,744 - DEBUG - Training CatBoostClassifier with params: {'iterations': 100, 'learning_rate': 0.1, 'depth': 6, 'verbose': False, 'random_seed': 42}
+2025-06-04 17:41:41,614 - INFO - CatBoostClassifier trained with test accuracy: 0.9014
+2025-06-04 17:49:44,105 - INFO - StackingClassifier trained with test accuracy: 0.9014
+2025-06-04 18:00:11,413 - ERROR - Failed to train VotingClassifier: 'RidgeClassifier' object has no attribute 'predict_proba'
+2025-06-04 18:00:11,443 - INFO - Top 3 models by test accuracy: [('LogisticRegression', 0.90145), ('RidgeClassifier', 0.90145), ('RandomForestClassifier', 0.90145)]
+2025-06-04 18:00:11,494 - DEBUG - Saved model to models\temp\logisticregression.pkl
+2025-06-04 18:00:11,533 - DEBUG - Saved model to models\temp\ridgeclassifier.pkl
+2025-06-04 18:00:11,567 - DEBUG - Saved model to models\temp\randomforestclassifier.pkl
+2025-06-04 20:45:34,837 - DEBUG - Loaded data from datasets\X_train.csv with shape (80000, 32)
+2025-06-04 20:45:34,853 - DEBUG - Loaded data from datasets\y_train.csv with shape (80000, 1)
+2025-06-04 20:45:34,982 - DEBUG - Loaded data from datasets\X_test.csv with shape (20000, 32)
+2025-06-04 20:45:34,982 - DEBUG - Loaded data from datasets\y_test.csv with shape (20000, 1)
+2025-06-04 20:45:34,982 - DEBUG - Training LogisticRegression with params: {'max_iter': 1000, 'solver': 'lbfgs', 'n_jobs': -1}
+2025-06-04 20:45:37,654 - INFO - LogisticRegression trained with test accuracy: 0.9014
+2025-06-04 20:45:37,654 - DEBUG - Training RidgeClassifier with params: {'alpha': 1.0, 'solver': 'auto'}
+2025-06-04 20:45:37,725 - INFO - RidgeClassifier trained with test accuracy: 0.9014
+2025-06-04 20:45:37,725 - DEBUG - Training RandomForestClassifier with params: {'n_estimators': 100, 'max_depth': 10, 'random_state': 42, 'n_jobs': -1}
+2025-06-04 20:45:41,420 - INFO - RandomForestClassifier trained with test accuracy: 0.9014
+2025-06-04 20:45:41,421 - DEBUG - Training ExtraTreesClassifier with params: {'n_estimators': 100, 'max_depth': 10, 'random_state': 42, 'n_jobs': -1}
+2025-06-04 20:45:44,048 - INFO - ExtraTreesClassifier trained with test accuracy: 0.9014
+2025-06-04 20:45:44,048 - DEBUG - Training GradientBoostingClassifier with params: {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3, 'random_state': 42}
+2025-06-04 20:45:59,882 - INFO - GradientBoostingClassifier trained with test accuracy: 0.9014
+2025-06-04 20:45:59,882 - DEBUG - Training XGBClassifier with params: {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3, 'use_label_encoder': False, 'eval_metric': 'logloss', 'random_state': 42}
+2025-06-04 20:46:00,422 - INFO - XGBClassifier trained with test accuracy: 0.9014
+2025-06-04 20:46:00,422 - DEBUG - Training LGBMClassifier with params: {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 10, 'random_state': 42}
+2025-06-04 20:46:02,663 - INFO - LGBMClassifier trained with test accuracy: 0.9014
+2025-06-04 20:46:02,663 - DEBUG - Training CatBoostClassifier with params: {'iterations': 100, 'learning_rate': 0.1, 'depth': 6, 'verbose': False, 'random_seed': 42}
+2025-06-04 20:46:05,509 - INFO - CatBoostClassifier trained with test accuracy: 0.9014
+2025-06-04 20:49:11,190 - INFO - StackingClassifier trained with test accuracy: 0.9014
+2025-06-04 21:00:22,369 - ERROR - Failed to train VotingClassifier: 'RidgeClassifier' object has no attribute 'predict_proba'
+2025-06-04 21:00:22,380 - INFO - Top 3 models by test accuracy: [('LogisticRegression', 0.90145), ('RidgeClassifier', 0.90145), ('RandomForestClassifier', 0.90145)]
+2025-06-04 21:00:22,414 - DEBUG - Saved model to models\temp\logisticregression.pkl
+2025-06-04 21:00:22,422 - DEBUG - Saved model to models\temp\ridgeclassifier.pkl
+2025-06-04 21:00:22,489 - DEBUG - Saved model to models\temp\randomforestclassifier.pkl
+2025-06-04 21:17:10,595 - DEBUG - Loaded data from datasets\X_train.csv with shape (80000, 32)
+2025-06-04 21:17:10,664 - DEBUG - Loaded data from datasets\y_train.csv with shape (80000, 1)
+2025-06-04 21:17:10,890 - DEBUG - Loaded data from datasets\X_test.csv with shape (20000, 32)
+2025-06-04 21:17:10,959 - DEBUG - Loaded data from datasets\y_test.csv with shape (20000, 1)
+2025-06-04 21:17:10,967 - DEBUG - Training LogisticRegression with params: {'max_iter': 1000, 'solver': 'lbfgs', 'n_jobs': -1}
+2025-06-04 21:17:21,863 - INFO - LogisticRegression trained with test accuracy: 0.9014
+2025-06-04 21:17:21,888 - DEBUG - Training RidgeClassifier with params: {'alpha': 1.0, 'solver': 'auto'}
+2025-06-04 21:17:28,230 - INFO - RidgeClassifier trained with test accuracy: 0.9014
+2025-06-04 21:17:28,248 - DEBUG - Training RandomForestClassifier with params: {'n_estimators': 100, 'max_depth': 10, 'random_state': 42, 'n_jobs': -1}
+2025-06-04 21:17:33,055 - INFO - RandomForestClassifier trained with test accuracy: 0.9014
+2025-06-04 21:17:33,082 - DEBUG - Training ExtraTreesClassifier with params: {'n_estimators': 100, 'max_depth': 10, 'random_state': 42, 'n_jobs': -1}
+2025-06-04 21:17:37,264 - INFO - ExtraTreesClassifier trained with test accuracy: 0.9014
+2025-06-04 21:17:37,294 - DEBUG - Training GradientBoostingClassifier with params: {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3, 'random_state': 42}
+2025-06-04 21:18:04,032 - INFO - GradientBoostingClassifier trained with test accuracy: 0.9014
+2025-06-04 21:18:04,067 - DEBUG - Training XGBClassifier with params: {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3, 'use_label_encoder': False, 'eval_metric': 'logloss', 'random_state': 42}
+2025-06-04 21:18:26,387 - INFO - XGBClassifier trained with test accuracy: 0.9014
+2025-06-04 21:18:26,412 - DEBUG - Training LGBMClassifier with params: {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 10, 'random_state': 42}
+2025-06-04 21:20:31,598 - INFO - LGBMClassifier trained with test accuracy: 0.9014
+2025-06-04 21:20:31,627 - DEBUG - Training CatBoostClassifier with params: {'iterations': 100, 'learning_rate': 0.1, 'depth': 6, 'verbose': False, 'random_seed': 42}
+2025-06-04 21:20:39,776 - INFO - CatBoostClassifier trained with test accuracy: 0.9014
+2025-06-04 21:28:18,197 - INFO - StackingClassifier trained with test accuracy: 0.9014
+2025-06-04 21:40:47,794 - ERROR - Failed to train VotingClassifier: 'RidgeClassifier' object has no attribute 'predict_proba'
+2025-06-04 21:40:47,829 - INFO - Top 3 models by test accuracy: [('LogisticRegression', 0.90145), ('RidgeClassifier', 0.90145), ('RandomForestClassifier', 0.90145)]
+2025-06-04 21:40:47,880 - DEBUG - Saved metrics to models\metrics.json
+2025-06-04 21:40:47,917 - DEBUG - Saved model to models\temp\logisticregression.pkl
+2025-06-04 21:40:47,924 - DEBUG - Saved model to models\temp\ridgeclassifier.pkl
+2025-06-04 21:40:48,085 - DEBUG - Saved model to models\temp\randomforestclassifier.pkl
+2025-06-04 22:29:24,046 - data_preprocessing - INFO - Raw data loaded from datasets/Extended_Employee_Performance_and_Productivity_Data_Raw.csv with shape (100000, 20).
+2025-06-04 22:29:24,122 - data_preprocessing - DEBUG - Split data into X (shape: (100000, 19)) and y (shape: (100000,)).
+2025-06-04 22:29:24,122 - data_preprocessing - DEBUG - Preprocessing features: 12 numerical, 3 categorical.
+2025-06-04 22:29:24,452 - data_preprocessing - INFO - Feature preprocessing completed.
+2025-06-04 22:29:24,491 - data_preprocessing - DEBUG - Processed features shape: (100000, 32)
+2025-06-04 22:29:24,510 - data_preprocessing - INFO - Target distribution before balancing: {False: 89990, True: 10010}
+2025-06-04 22:29:30,210 - data_preprocessing - INFO - Preprocessed data saved at datasets/preprocessed_data.csv.
+2025-06-04 22:29:30,237 - data_preprocessing - INFO - Preprocessor saved at preprocessor.pkl
+2025-06-04 22:29:30,272 - data_preprocessing - INFO - Data preprocessing completed in 6.78 seconds.
+2025-06-04 22:32:03,228 - DEBUG - Loaded data from datasets\X_train.csv with shape (80000, 32)
+2025-06-04 22:32:03,285 - DEBUG - Loaded data from datasets\y_train.csv with shape (80000, 1)
+2025-06-04 22:32:03,556 - DEBUG - Loaded data from datasets\X_test.csv with shape (20000, 32)
+2025-06-04 22:32:03,627 - DEBUG - Loaded data from datasets\y_test.csv with shape (20000, 1)
+2025-06-04 22:32:03,663 - DEBUG - Training LogisticRegression with params: {'max_iter': 1000, 'solver': 'lbfgs', 'n_jobs': -1}
+2025-06-04 22:32:28,486 - INFO - LogisticRegression trained with test accuracy: 0.9014
+2025-06-04 22:32:28,559 - DEBUG - Training RidgeClassifier with params: {'alpha': 1.0, 'solver': 'auto'}
+2025-06-04 22:32:37,363 - INFO - RidgeClassifier trained with test accuracy: 0.9014
+2025-06-04 22:32:37,392 - DEBUG - Training RandomForestClassifier with params: {'n_estimators': 100, 'max_depth': 10, 'random_state': 42, 'n_jobs': -1}
+2025-06-04 22:32:43,142 - INFO - RandomForestClassifier trained with test accuracy: 0.9014
+2025-06-04 22:32:43,150 - DEBUG - Training ExtraTreesClassifier with params: {'n_estimators': 100, 'max_depth': 10, 'random_state': 42, 'n_jobs': -1}
+2025-06-04 22:32:48,378 - INFO - ExtraTreesClassifier trained with test accuracy: 0.9014
+2025-06-04 22:32:48,420 - DEBUG - Training GradientBoostingClassifier with params: {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3, 'random_state': 42}
+2025-06-04 22:33:16,507 - INFO - GradientBoostingClassifier trained with test accuracy: 0.9014
+2025-06-04 22:33:16,528 - DEBUG - Training XGBClassifier with params: {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3, 'use_label_encoder': False, 'eval_metric': 'logloss', 'random_state': 42}
+2025-06-04 22:33:40,635 - INFO - XGBClassifier trained with test accuracy: 0.9014
+2025-06-04 22:33:40,671 - DEBUG - Training LGBMClassifier with params: {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 10, 'random_state': 42}
+2025-06-04 22:35:54,287 - INFO - LGBMClassifier trained with test accuracy: 0.9014
+2025-06-04 22:35:54,306 - DEBUG - Training CatBoostClassifier with params: {'iterations': 100, 'learning_rate': 0.1, 'depth': 6, 'verbose': False, 'random_seed': 42}
+2025-06-04 22:36:01,722 - INFO - CatBoostClassifier trained with test accuracy: 0.9014
+2025-06-04 22:45:17,265 - INFO - StackingClassifier trained with test accuracy: 0.9014
+2025-06-04 22:57:35,045 - ERROR - Failed to train VotingClassifier: 'RidgeClassifier' object has no attribute 'predict_proba'
+2025-06-04 22:57:35,110 - INFO - Top 3 models by test accuracy: [('LogisticRegression', 0.90145), ('RidgeClassifier', 0.90145), ('RandomForestClassifier', 0.90145)]
+2025-06-04 22:57:35,150 - DEBUG - Saved metrics to models\metrics.json
+2025-06-04 22:57:35,163 - DEBUG - Saved model to models\temp\logisticregression.pkl
+2025-06-04 22:57:35,191 - DEBUG - Saved model to models\temp\ridgeclassifier.pkl
+2025-06-04 22:57:35,237 - DEBUG - Saved model to models\temp\randomforestclassifier.pkl

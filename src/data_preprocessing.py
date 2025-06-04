@@ -9,6 +9,7 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 import argparse
 import time
+from imblearn.over_sampling import SMOTE
 
 
 def setup_logging(log_dir: str, log_file: str, log_level: int = logging.INFO) -> logging.Logger:
@@ -75,7 +76,8 @@ def preprocess_features(
     preprocessor = ColumnTransformer(
         transformers=[
             ('num', StandardScaler(), numerical_features),
-            ('cat', OneHotEncoder(**ohe_params, sparse=False, handle_unknown='ignore'), categorical_features)
+            ('cat', OneHotEncoder(**ohe_params), categorical_features)
+
         ],
         remainder='drop'
     )
@@ -122,6 +124,7 @@ def main(params_path: str):
         numerical_features = params['numerical_features']
         categorical_features = params['categorical_features']
         ohe_params = params['preprocessing'].get('onehotencoder', {})
+        balance = params.get('preprocessing', {}).get('balance_data', False)
 
         df = pd.read_csv(raw_data_path)
         logger.info(f"Raw data loaded from {raw_data_path} with shape {df.shape}.")
@@ -129,8 +132,20 @@ def main(params_path: str):
         X, y = split_features_target(df, target_col, logger)
         X_processed, preprocessor = preprocess_features(X, numerical_features, categorical_features, ohe_params, logger)
 
-        processed_df = X_processed.copy()
-        processed_df[target_col] = y
+        # ✅ Class distribution before balancing
+        logger.info(f"Target distribution before balancing: {y.value_counts().to_dict()}")
+
+        # ⚖️ Apply SMOTE balancing if enabled
+        if balance:
+            logger.info("Applying SMOTE for class balancing...")
+            smote = SMOTE(random_state=42)
+            X_balanced, y_balanced = smote.fit_resample(X_processed, y)
+            logger.info(f"Target distribution after balancing: {pd.Series(y_balanced).value_counts().to_dict()}")
+        else:
+            X_balanced, y_balanced = X_processed, y
+
+        processed_df = X_balanced.copy()
+        processed_df[target_col] = y_balanced
 
         processed_df.to_csv(processed_data_path, index=False)
         logger.info(f"Preprocessed data saved at {processed_data_path}.")
@@ -143,6 +158,7 @@ def main(params_path: str):
 
     elapsed_time = time.time() - start_time
     logger.info(f"Data preprocessing completed in {elapsed_time:.2f} seconds.")
+
 
 
 if __name__ == "__main__":

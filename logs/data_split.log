@@ -80,3 +80,13 @@
 2025-05-26 16:16:50,674 - data_split - INFO - Training target saved to datasets\y_train.csv
 2025-05-26 16:16:50,761 - data_split - INFO - Testing features saved to datasets\X_test.csv
 2025-05-26 16:16:50,844 - data_split - INFO - Testing target saved to datasets\y_test.csv
+2025-06-04 16:55:24,954 - data_split - INFO - Data loaded from datasets/preprocessed_data.csv with shape (100000, 33)
+2025-06-04 16:55:25,106 - data_split - DEBUG - Data split with test_size=0.2
+2025-06-04 16:55:25,117 - data_split - DEBUG - Train features shape: (80000, 32), Test features shape: (20000, 32)
+2025-06-04 16:55:25,142 - data_split - INFO - Data split into training and testing sets
+2025-06-04 16:55:30,354 - data_split - INFO - Split data saved in directory: datasets
+2025-06-04 22:31:17,371 - data_split - INFO - Data loaded from datasets/preprocessed_data.csv with shape (100000, 33)
+2025-06-04 22:31:17,487 - data_split - DEBUG - Data split with test_size=0.2
+2025-06-04 22:31:17,503 - data_split - DEBUG - Train features shape: (80000, 32), Test features shape: (20000, 32)
+2025-06-04 22:31:17,514 - data_split - INFO - Data split into training and testing sets
+2025-06-04 22:31:23,388 - data_split - INFO - Split data saved in directory: datasets
